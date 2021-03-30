@@ -22,8 +22,8 @@ jobs:
       uses: returntocorp/semgrep-action@v1
       with:
         config: ${{ github.event.inputs.rules }} 
-        sarif:
-        output: ${{ runner.temp }}/baseline.json
+        generateSarif: 1
+        auditOn: workflow_dispatch
 
     - name: trace
       if: ${{ always() }}
