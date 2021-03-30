@@ -22,3 +22,10 @@ jobs:
       uses: returntocorp/semgrep-action@v1
       with:
         config: ${{ github.event.inputs.rules }} 
+        sarif:
+        output: ${{ runner.temp }}/baseline.json
+
+    - name: trace
+      if: ${{ always() }}
+      run: |
+        cat ${{ runner.temp }}/baseline.json
