@@ -1,0 +1,24 @@
+name: Run Semgrep baseline
+
+on: 
+  workflow_dispatch:
+    inputs:
+      rules:
+        description: 'rules to used'     
+        required: true
+        default: 'r/generic.secrets.security'
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    name: A job to push semgrep baseline findings to GitHub
+    steps:
+
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run Semgrep
+      id: semgrep
+      uses: returntocorp/semgrep-action@v1
+      with:
+        config: ${{ github.event.inputs.rules }} 
