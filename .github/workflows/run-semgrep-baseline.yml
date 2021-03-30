@@ -26,6 +26,5 @@ jobs:
         auditOn: workflow_dispatch
 
     - name: trace
-      if: ${{ always() }}
       run: |
-        cat ${{ runner.temp }}/baseline.json
+        cat semgrep.sarif 
