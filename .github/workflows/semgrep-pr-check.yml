@@ -1,0 +1,18 @@
+name: Run Semgrep as a Pull Request check
+
+on: pull_request 
+
+jobs:
+  semgrep:
+    runs-on: ubuntu-latest
+    name: A job to run semgrep as a PR check 
+    steps:
+
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Run Semgrep
+      uses: returntocorp/semgrep-action@v1
+      with:
+        config: r/generic.secrets.security
+
