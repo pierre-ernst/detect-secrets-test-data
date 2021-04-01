@@ -1,1 +1,3 @@
 c3vwzxig
+
+aws_access_key = 'AKIAIOSFODNN7EXAMPLE'
