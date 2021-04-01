@@ -3,5 +3,5 @@ repos:
     rev: v0.45.0
     hooks:
     -   id: semgrep
-        types: [python]
+        types: [file]
         args: ['--config', 'r/generic.secrets.security', '--error']
